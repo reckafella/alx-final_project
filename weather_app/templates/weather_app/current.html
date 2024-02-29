@@ -1,0 +1,17 @@
+{% extends 'weather_app/index.html' %}
+
+{% block title %}Weather App - Current Weather{% endblock %}
+
+{% block nav %}
+    <ul>
+        <li><a href="{% url 'index' %}">Home</a></li>
+        <li><a href="{% url 'forecast' %}">Forecast</a></li>
+        <li><a href="{% url 'about' %}">About</a></li>
+    </ul>
+{% endblock %}
+
+{% block content %}
+    {% if weather_data %}
+        {% include 'weather_app/current_weather.html' with weather_data=weather_data %}
+    {% endif %}
+{% endblock %}

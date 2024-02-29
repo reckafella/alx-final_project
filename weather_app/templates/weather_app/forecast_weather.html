@@ -1,0 +1,23 @@
+{% block heading %}
+    <p class="type">7-day Weather Forecast</p>
+{% endblock %}
+
+{% if forecast %}
+    <p class="loc">
+        {% if location %} {{ location.city }}, {{ location.country }}{% endif %}
+    </p>
+    <div class="weather-info">
+        {% for forecast in forecast %}
+            <div class="container">
+                <h3>{{ forecast.date }}, {{ forecast.day }}</h3>
+                <hr>
+                <p>Min Temp: <span class="data-item">{{ forecast.min_temp }}&deg;C</span></p>
+                <p>Max Temp: <span class="data-item">{{ forecast.max_temp }}&deg;C</span></p>
+                <p>Condition: <span class="data-item">{{ forecast.condition }}</span></p>
+                <img src="https:{{ forecast.icon }}" alt="{{ forecast.condition }}">
+                <p>Humidity: <span class="data-item">{{ forecast.humidity }}%</span></p>
+                <p>Wind Speed: <span class="data-item">{{ forecast.wind_speed }} km/h</span></p>
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}

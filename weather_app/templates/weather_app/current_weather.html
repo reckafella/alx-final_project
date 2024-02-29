@@ -1,0 +1,19 @@
+{% block heading %}
+    <p class="type">Current Weather</p>
+{% endblock %}
+{% if weather_data %}
+    <div class="weather-info">
+        <div class="container">
+            <p class="loc">{{ weather_data.city }}, {{ weather_data.country }}</p>
+            <hr>
+            <p>Temperature: {{ weather_data.temp_c }}&deg;C</p>
+            <p>Condition: {{ weather_data.condition }}</p>
+            <img src="https:{{ weather_data.icon }}" alt="{{ weather_data.condition }}">
+            <p>Humidity: {{ weather_data.humidity }}%</p>
+            <p>Wind Speed: {{ weather_data.wind_speed }}kph</p>
+            <hr>
+            <p>{{ weather_data.local_time }}</p>
+            
+        </div>
+    </div>
+{% endif %}

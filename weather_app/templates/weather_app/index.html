@@ -1,0 +1,19 @@
+{% extends 'weather_app/base.html' %}
+{% block title %}Weather App - Index {% endblock  %}
+
+{% block heading %}
+{% endblock %}
+
+{% block main %}   
+    <main class="main-container">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <label>
+                <input type="text" name="city" placeholder="Enter city name" required>
+            </label>
+            <button type="submit">Search</button>
+        </form>
+        {% block content %}
+        {% endblock %}
+    </main>
+{% endblock %}

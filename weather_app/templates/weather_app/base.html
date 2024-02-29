@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{% static 'icons/favicon.ico' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>{% block title %}Weather App{% endblock  %}</title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="/">
+                <img src="{% static 'icons/weather_icon.png' %}" alt="Weather Icon">
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{% url 'index' %}">Home</a></li>
+                <li><a href="{% url 'current' %}">Current Weather</a></li>
+                <li><a href="{% url 'forecast' %}">Forecast</a></li>
+                <li><a href="{% url 'about' %}">About</a></li>
+            </ul>
+        </nav>
+
+    </header>
+    {% block main %}
+    {% endblock %}
+    <footer>
+        <p>&copy; Weather App, 2024</p>
+        <ul>
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'current' %}">Current Weather</a></li>
+            <li><a href="{% url 'forecast' %}">Forecast</a></li>
+            <li><a href="{% url 'about' %}">About</a></li>
+            <li><a href="https://github.com/reckafella/alx-final_project" target="_blank">GitHub</a></li>
+        </ul>
+    </footer>
+</body>
+</html>

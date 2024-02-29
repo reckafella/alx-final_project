@@ -1,0 +1,30 @@
+{% extends 'weather_app/base.html' %}
+
+{% block title %}Weather App - About{% endblock %}
+
+{% block nav %}
+    <ul>
+        <li><a href="{% url 'index' %}">Home</a></li>
+        <li><a href="{% url 'current' %}">Current Weather</a></li>
+        <li><a href="{% url 'forecast' %}">Forecast</a></li>
+    </ul>
+{% endblock %}
+
+{% block main %}
+
+    <main class="main-container" id="about-container">
+        <h2>About Weather App</h2>
+        <hr>
+        <p>This is a simple weather app that uses data from WeatherAPI.com to display current weather and 7-day forecast for any given city / location.</p>
+        <p>It is built using Django, HTML, CSS and <a class="weather-api" href="https://WeatherAPI.com" target="_blank">WeatherAPI</a>.</p>
+        <p>It is part of the final Project for the <a id="alx-link" href=".">Software Engineering</a> Program at ALX Africa.</p>
+        <hr>
+        <p>Developed by:
+            <ol id="authors">
+                <li><a href="https://github.com/kgiveso">Tshepiso Mogoboya</a></li>
+                <li><a href="https://github/reckafella">Ethan Wanyoike</a></li>
+            </ol>
+        </p>
+    </main>
+
+{% endblock %}
