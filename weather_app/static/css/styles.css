@@ -11,23 +11,22 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  min-height: 100vh; /* Set the height to fill the viewport */
-  margin: 0; /* Remove default margin */
-  padding: 0; 
+  min-height: 100vh; /* Set the height to fill the viewport */ 
 }
 
 /* Header */
 
 header {
-    background-color: #311205;
+    background-color: #1f08f2;
     color: #fff;
     padding: 10px 20px;
     align-items: center;
     display: flex;
-    height: calc(100vh / 10);
+    height: calc(100vh / 9);
     left: 0;
     right: 0;
     width: 100%;
+    position: fixed;
     
 }
 
