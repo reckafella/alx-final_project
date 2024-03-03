@@ -8,10 +8,10 @@ def index(request):
     if request.method == 'POST':
         city = request.POST['city']
         weather = WeatherAPI()
-        weather_data = weather.get_weather(city)
+        data = weather.get_weather(city)
 
         context = {
-            'weather_data': weather_data,
+            'weather_data': data,
         }
 
         return render(request, 'weather_app/current.html', context)
@@ -24,11 +24,11 @@ def forecast(request):
     if request.method == 'POST':
         city = request.POST['city']
         weather = WeatherAPI()
-        location, forecast = weather.get_forecast(city)
+        data = weather.get_forecast(city)
 
         context = {
-            'location': location,
-            'forecast': forecast,
+            'location': data[0],
+            'forecast': data[1],
         }
 
         return render(request, 'weather_app/forecast.html', context)

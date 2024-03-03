@@ -6,23 +6,25 @@
 
 body {
   font-family: Arial, sans-serif;
-  overflow-y: visible;
+  overflow-y: scroll;
   background-image: url("../icons/weather_card.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  min-height: 100vh; /* Set the height to fill the viewport */ 
+  min-height: fit-content; /* Set the height to fill the viewport */
+    position: relative;
 }
 
 /* Header */
 
 header {
-    background-color: #1f08f2;
+    background-color: #090816;
     color: #fff;
     padding: 10px 20px;
     align-items: center;
     display: flex;
-    height: calc(100vh / 9);
+    height: calc(100vh / 10);
+    top: 0;
     left: 0;
     right: 0;
     width: 100%;
@@ -32,7 +34,7 @@ header {
 
 .logo {
     margin-right: auto;
-    height: 50px;
+    height: 99%;
 }
 
 .logo img {
@@ -63,6 +65,15 @@ nav ul li:first-child, footer ul li:first-child{
     font-weight: bold;
 }
 
+.main-section {
+    margin-top: 10vh;
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
 .container, .main-container {
     max-width: 400px;
     margin: 0 auto;
@@ -71,7 +82,16 @@ nav ul li:first-child, footer ul li:first-child{
     background-color: rgba(255, 255, 255, 0.5); /* Set the background color to be transparent */
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Adjust the alpha value here for the box shadow transparency */
-    margin-top: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.5); /* Set the border color to be transparent */
+}
+
+.container {
+    margin: 2vh 2vw;
+}
+
+.container h1 {
+    font-size: 36px;
+    font-weight: 600;
 }
 
 .main-container .type {
@@ -90,16 +110,17 @@ hr {
 }
 
 .main-container {
-    margin-bottom: 90px;
+    margin-top: 5vh;
+    margin-bottom: 20px;
 }
 
 h1 {
     font-size: 24px;
 }
 
-
 main {
-    min-height: 75vh;
+    min-height:40vh;
+    margin-bottom: 20vh;
 }
 
 /* form */
@@ -116,6 +137,8 @@ input[type="text"] {
     font-size: 16px;
     border: none;
     border-radius: 5px;
+    display: flex;
+    flex-direction: column-reverse;
 }
 
 input[type="text"]:focus {
@@ -134,16 +157,6 @@ button {
     height: 40px;
     margin: auto 0;
 } 
-/* button {
-    background-color: #007BFF;
-    color: #fff;
-    border: none;
-    padding: 0px 4px;
-    border-radius: 5px;
-    cursor: pointer;
-    
-} */
-
 
 button:hover {
     background-color: #ff6600;
@@ -158,32 +171,31 @@ button:hover {
         min-width: 90vw;
     }
     .container {
-        max-width: 50%;
+        width: 45%;
     }
     .weather-info {
         display: flex;
-        justify-content: space-between;
+        justify-content: space-evenly;
         flex-wrap: wrap;
-    }
-    #about-container {
-        max-width: 50vh;
-        max-height: auto;
     }
 }
 
 @media screen and (min-width: 1000px) {
     .main-container {
-        min-width: 70vw;
+        min-width: 75vw;
     }
 
 }
 
 footer {
-    background-color: #063798;
+    background-color: #130604;
     color: #fff;
     padding: 10px 20px;
-    position: fixed;
+    position: relative;
     bottom: 0;
+    left: 0;
+    right: 0;
+
     width: 100%;
     text-align: center;
     justify-content: center;

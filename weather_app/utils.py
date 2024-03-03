@@ -22,7 +22,8 @@ class WeatherAPI:
 
         response = requests.get(weather_url).json()
 
-        lt = response['location']['localtime_epoch']
+        lt = response['location']['localtime']
+        pfmt, ffmt = '%Y-%m-%d %H:%M', '%I:%M:%S %p'
 
         weather_data = {
             'city': response['location']['name'],
@@ -34,11 +35,13 @@ class WeatherAPI:
             'wind_speed': response['current']['wind_kph'],
             'condition': response['current']['condition']['text'],
             'icon': response['current']['condition']['icon'],
-            'local_time': datetime.fromtimestamp(lt).strftime('%I:%M:%S %p'),
+            'local_time': datetime.strptime(lt, pfmt).strftime(ffmt),
         }
 
-        self.redis_client.setex(f'weather:{city}', timedelta(minutes=10),
-                                json.dumps(weather_data).encode('utf-8'))
+        name = f'weather:{city}'
+        jdumps = json.dumps(weather_data).encode('utf-8')
+
+        self.redis_client.setex(name, timedelta(minutes=10), jdumps)
 
         return weather_data
 
@@ -73,8 +76,8 @@ class WeatherAPI:
                 'humidity': forecast['day']['avghumidity'],
                 'wind_speed': forecast['day']['maxwind_kph'],
             })
+        data = [location, forecast_data]
+        self.redis_client.setex(f'forecast:{city}', timedelta(minutes=30),
+                                json.dumps(data).encode('utf-8'))
 
-        self.redis_client.setex(f'forecast:{city}', timedelta(hours=3),
-                                json.dumps(forecast_data).encode('utf-8'))
-
-        return location, forecast_data
+        return data
