@@ -5,7 +5,7 @@ This is the primary repository for the ALX  Weather API, a free and open API des
 ## **Contributors**
 
 1. Ethan Wanyoike <ethanmuthoni@gmail.com>
-2. Tshepiso Mogoboya <kgiveso@gmail.com>
+2. Tshepiso Mogoboya <mogoboyagiven@gmail.com>
 
 ## **Why**
 
