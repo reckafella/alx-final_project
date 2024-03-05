@@ -2,17 +2,17 @@
     <p class="type">Current Weather</p>
 {% endblock %}
 {% if weather_data %}
-    <div class="weather-info">
+    <div id="weather-info">
         <div class="container">
-            <p class="loc">{{ weather_data.city }}, {{ weather_data.country }}</p>
+            <p id="loc">{{ weather_data.city }}, {{ weather_data.country }}</p>
             <hr>
-            <p>Temperature: {{ weather_data.temp_c }}&deg;C</p>
-            <p>Condition: {{ weather_data.condition }}</p>
+            <p>Temperature: <span class="data-item">{{ weather_data.temp_c }}&deg;C</span></p>
+            <p>Condition: <span class="data-item">{{ weather_data.condition }}</span></p>
             <img src="https:{{ weather_data.icon }}" alt="{{ weather_data.condition }}">
-            <p>Humidity: {{ weather_data.humidity }}%</p>
-            <p>Wind Speed: {{ weather_data.wind_speed }}kph</p>
+            <p>Humidity: <span class="data-item">{{ weather_data.humidity }}%</span></p>
+            <p>Wind Speed: <span class="data-item">{{ weather_data.wind_speed }}kph</span></p>
             <hr>
-            <p>Local time: {{ weather_data.local_time }}</p>
+            <p>Local time: <span class="data-item">{{ weather_data.local_time }}</span></p>
             
         </div>
     </div>

@@ -3,13 +3,13 @@
 {% endblock %}
 
 {% if forecast %}
-    <p class="loc">
+    <p id="loc">
         {% if location %} {{ location.city }}, {{ location.country }}{% endif %}
     </p>
-    <div class="weather-info">
+    <div id="weather-info">
         {% for forecast in forecast %}
             <div class="container">
-                <h3>{{ forecast.day }}, {{ forecast.date }}</h3>
+                <h3>{{ forecast.day }}</h3>
                 <hr>
                 <p>Min Temp: <span class="data-item">{{ forecast.min_temp }}&deg;C</span></p>
                 <p>Max Temp: <span class="data-item">{{ forecast.max_temp }}&deg;C</span></p>
